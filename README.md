@@ -1,5 +1,5 @@
 # arcade_machine
-Here you will find the source files for all of the C# code for my 3rd year Uni project which involved making 6 games with the Unity Engine.
+Here you will find the source files for all of the C# code for my 3rd year Uni project which involved making 6 games with the Unity Engine, with the wooden cabinet and decorations made by myself.
 
 Martian Attack - Space Shooter.
 
