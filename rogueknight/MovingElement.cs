@@ -82,7 +82,8 @@ namespace RogueKnight
          bool moveAllowed = MoveElement(x, y, out hit);
 
          // This checks to see if nothing was hit by the linecast
-         if (hit.transform == null) {
+         if (hit.transform == null) 
+	 {
             // If nothing was hit at all then get out of this function
             return;
          }
@@ -91,7 +92,8 @@ namespace RogueKnight
          T hitComponent = hit.transform.GetComponent < T > ();
 
          // If canMove is false and also hitComponent is not equal to null
-         if (!moveAllowed && hitComponent != null) {
+         if (!moveAllowed && hitComponent != null) 
+	 {
             // Call the IfCantMove function and pass hitComponent as the param
             IfCantMove(hitComponent);
          }
