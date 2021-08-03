@@ -17,13 +17,17 @@ namespace DodgeEm
         public override void ModifyMesh(VertexHelper vh)
         {
             if (!this.IsActive())
+            {
                 return;
+            }
+            
             List<UIVertex> vertexList = new List<UIVertex>();
             vh.GetUIVertexStream(vertexList);
             ModifyVertices(vertexList);
             vh.Clear();
             vh.AddUIVertexTriangleStream(vertexList);
         }
+        
         public void ModifyVertices(List<UIVertex> vertexList)
         {
             int count = vertexList.Count;
@@ -41,7 +45,9 @@ namespace DodgeEm
                     bottomY = y;
                 }
             }
+            
             float uiElementHeight = topY - bottomY;
+            
             for (int i = 0; i < count; i++)
             {
                 UIVertex uiVertex = vertexList[i];
