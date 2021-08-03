@@ -10,7 +10,7 @@ public class DestroyScaleSmoke : MonoBehaviour
         // Destroy the smoke after a certain amount of time
         Destroy(gameObject, 1f);
         StartCoroutine(ScaleDown());
-	}
+    }
 
     // Scale down the smoke over time (every 0.05f of a second)
     IEnumerator ScaleDown()
