@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DestroyScaleSmoke : MonoBehaviour
 {
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         // Destroy the smoke after a certain amount of time
         Destroy(gameObject, 1f);
