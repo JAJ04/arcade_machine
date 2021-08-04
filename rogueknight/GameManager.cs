@@ -9,7 +9,7 @@ namespace RogueKnight
     // REFERENCE: https://unity3d.com/learn/tutorials/s/2d-roguelike-tutorial
     // The tutorial above was used as a base to which to make modifications from						
 
-    public class GameManager: MonoBehaviour 
+    public class GameManager : MonoBehaviour 
     {
         // Static variable to hold the amount of chests collected
         public static int easterEggCount;
