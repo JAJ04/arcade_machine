@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace LeonsWorld 
 {
-    public class Flamethrower: MonoBehaviour
+    public class Flamethrower : MonoBehaviour
     {
         // Variables to get game manager data
         public GameObject gameManager;
