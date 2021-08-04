@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace RogueKnight 
 {
-    public class SoundManager: MonoBehaviour 
+    public class SoundManager : MonoBehaviour 
     {
         // Variables for pitch ranges and references to elements
         public float lowPitch = .85 f;
