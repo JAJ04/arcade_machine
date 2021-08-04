@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MartianAttack
+namespace MartianAttack 
 {
-    public class LeaderBoard : MonoBehaviour
+    public class LeaderBoard: MonoBehaviour 
     {
         // Array that stores all of the high scores
         public Text[] _highScores;
@@ -22,9 +22,9 @@ namespace MartianAttack
         // This stores the usernames
         private string[] _highScoreNames;
 
-	    // Use this for initialization
-	    void Start ()
-        {
+        // Use this for initialization
+        void Start() 
+	{
             // Initialize array
             _highScoreValues = new int[_highScores.Length];
             // Initialize array for boss multipliers
@@ -32,8 +32,8 @@ namespace MartianAttack
             // Initialize array for names
             _highScoreNames = new string[_highScores.Length];
 
-            for (int x = 0; x < _highScores.Length; x++)
-            {
+            for (int x = 0; x < _highScores.Length; x++) 
+	    {
                 // Get the high score values
                 _highScoreValues[x] = PlayerPrefs.GetInt("highScoreValues" + x);
                 // Get the boss multiplier values
@@ -47,10 +47,10 @@ namespace MartianAttack
         }
 
         void SaveScores()
-        {
+	{
             // Store the scores even after the game has ended
-            for (int x = 0; x < _highScores.Length; x++)
-            {
+            for (int x = 0; x < _highScores.Length; x++) 
+	    {
                 // Set the high score values
                 PlayerPrefs.SetInt("bossMultipliers" + x, _bossMultipliers[x]);
                 // Set the high score values
@@ -61,12 +61,12 @@ namespace MartianAttack
         }
 
         public void CheckForHighScore(int value, string userName, int bossMultiplier)
-        {
-            for(int x = 0; x < _highScores.Length; x++)
-            {
+	{
+            for (int x = 0; x < _highScores.Length; x++)
+	    {
                 // Enter a new score
-                if(value >= _highScoreValues[x])
-                {
+                if (value >= _highScoreValues[x])
+		{
                     // Move the score up for the new score to go in
                     // its place
 
@@ -82,8 +82,8 @@ namespace MartianAttack
                     // By copying the elements less than the element
                     // down by 1
                     // Six elements are not allowed
-                    for(int y = _highScores.Length - 1; y > x; y--)
-                    {
+                    for (int y = _highScores.Length - 1; y > x; y--) 
+		    {
                         // Place new score into where it should be
                         _highScoreValues[y] = _highScoreValues[y - 1];
                         // Place new name where it should be
@@ -105,19 +105,19 @@ namespace MartianAttack
             }
         }
 
-        void DrawScores()
-        {
+        void DrawScores() 
+	{
             for (int x = 0; x < _highScores.Length; x++)
-            {
+	    {
                 // Display the scores
 
                 // If there is a blank in _highScoreNames then display "NO NAME" instead
-                if(_highScoreNames[x].ToString() == "")
-                {
+                if (_highScoreNames[x].ToString() == "") 
+		{
                     _highScores[x].text = "NO NAME" + ": " + _highScoreValues[x].ToString();
                     _bossMultipliersText[x].text = _bossMultipliers[x].ToString();
-                }
-                else // display the name in the array
+                } 
+		else // display the name in the array
                 {
                     // Remove space as that is what is used to confirm the name
                     _highScores[x].text = _highScoreNames[x].ToString() + ": " + _highScoreValues[x].ToString();
@@ -127,4 +127,3 @@ namespace MartianAttack
         }
     }
 }
-
