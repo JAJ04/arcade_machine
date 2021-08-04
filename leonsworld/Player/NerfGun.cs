@@ -1,10 +1,10 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LeonsWorld
+namespace LeonsWorld 
 {
-    public class NerfGun : MonoBehaviour
+    public class NerfGun : MonoBehaviour 
     {
         // Variable to get the game manager
         public GameObject gameManager;
@@ -15,14 +15,14 @@ namespace LeonsWorld
         // Reference to the sound to play
         public AudioSource selectWepSound;
 
-	    // Use this for initialization
-	    void Start ()
-        {
-            gameManagerScript = gameManager.GetComponent<GameManager>();
+        // Use this for initialization
+        void Start() 
+	{
+            gameManagerScript = gameManager.GetComponent < GameManager > ();
         }
 
-        public void GiveNerfGun()
-        {
+        public void GiveNerfGun() 
+	{
             // Does enabling/renabling/playing to give the player the nerf gun
             GameManager.bulletDamage = 5;
 
