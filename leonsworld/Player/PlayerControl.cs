@@ -114,7 +114,7 @@ namespace LeonsWorld
             // Get the bossSnowmanCode if bossSnowman exists in the scene
             if (bossSnowman != null) 
 	    {
-                bossSnowmanCode = bossSnowman.GetComponent < Boss2D > ();
+                bossSnowmanCode = bossSnowman.GetComponent<Boss2D>();
             }
         }
 
@@ -140,7 +140,7 @@ namespace LeonsWorld
 
                 if (GameManager.bulletDamage == 5) 
 		{
-                    _nerfGun.GetComponent<SpriteRenderer >().enabled = true;
+                    _nerfGun.GetComponent<SpriteRenderer>().enabled = true;
                     _aerosol.GetComponent<SpriteRenderer>().enabled = false;
                     _flameThrower.GetComponent<SpriteRenderer>().enabled = false;
                 }
