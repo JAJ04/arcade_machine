@@ -4,7 +4,7 @@ using System.Collections;
 namespace RogueKnight 
 {
     // This class inherits from MovingElement, the base class for objects that can move
-    public class Ghost: MovingElement 
+    public class Ghost : MovingElement 
     {
         // The amount of food points to subtract from the knight when attacking
         public int knightDamage;
