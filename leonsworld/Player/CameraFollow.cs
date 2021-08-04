@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace LeonsWorld 
 {
-    public class CameraFollow: MonoBehaviour 
+    public class CameraFollow : MonoBehaviour 
     {
         // Gets player position
         public Transform Player;
