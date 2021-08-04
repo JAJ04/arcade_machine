@@ -14,6 +14,7 @@ namespace DodgeEm
         private Color32 topColor = Color.white;
         [SerializeField]
         private Color32 bottomColor = Color.black;
+        
         public override void ModifyMesh(VertexHelper vh)
         {
             if (!this.IsActive())
@@ -33,6 +34,7 @@ namespace DodgeEm
             int count = vertexList.Count;
             float bottomY = vertexList[0].position.y;
             float topY = vertexList[0].position.y;
+            
             for (int i = 1; i < count; i++)
             {
                 float y = vertexList[i].position.y;
