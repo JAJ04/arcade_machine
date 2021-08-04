@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace LeonsWorld 
 {
-    public class Boss2D: MonoBehaviour 
+    public class Boss2D : MonoBehaviour 
     {
         // Slider to show the health of the boss
         public Slider bossSlider;
