@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 namespace RogueKnight 
 {
-    public class DungeonBoardManager: MonoBehaviour 
+    public class DungeonBoardManager : MonoBehaviour 
     {
         // Serializable allows properties to be set in the inspector
         [Serializable]
