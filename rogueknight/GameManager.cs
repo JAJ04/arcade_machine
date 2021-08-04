@@ -1,16 +1,16 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-namespace RogueKnight
+namespace RogueKnight 
 {
     // REFERENCE: https://unity3d.com/learn/tutorials/s/2d-roguelike-tutorial
     // The tutorial above was used as a base to which to make modifications from						
-	
-	public class GameManager : MonoBehaviour
-	{
+
+    public class GameManager: MonoBehaviour 
+    {
         // Static variable to hold the amount of chests collected
         public static int easterEggCount;
         // This is the amount of energy the knight will have in the start
@@ -22,9 +22,9 @@ namespace RogueKnight
         public static GameManager gmInstance = null;
 
         // This is the time to delay before starting a dungeon
-        public float dungeonStartDelay = 2f;
+        public float dungeonStartDelay = 2 f;
         // This is used to delay the knight movement
-        public float knightTurnDelay = 0.05f;
+        public float knightTurnDelay = 0.05 f;
 
         // This is used to display the letter image
         private GameObject dungeonImage;
@@ -34,9 +34,9 @@ namespace RogueKnight
         private Text restartText;
         // This is used to get the properties and functions of the dungeon board manager
         private DungeonBoardManager dungeonBoardManager;
-        
+
         // This is the list of ghosts that are in the game
-		private List<Ghost> ghosts;
+        private List <Ghost> ghosts;
 
         // This is ture if the dungeon board is being set up
         private bool settingBoard = true;
@@ -64,61 +64,60 @@ namespace RogueKnight
         public bool knightsTurn = true;
 
         // Awake is the very first thing to be called in scripts
-        void Awake()
-		{
+        void Awake() 
+	{
             // Check to see if an instance of "THIS" script exists
-            if (gmInstance == null)
-            {
+            if (gmInstance == null) 
+	    {
                 // Create an instance if an instance does not exist
                 gmInstance = this;
             }
             // If an instance does already exist then
-            else if (gmInstance != this)
-            {
+            else if (gmInstance != this) 
+	    {
                 // Destroy the instance which enforces the singleton design pattern
                 Destroy(gameObject);
                 enabled = false;
                 return;
             }
-			
-			// This "GameManager" will be carried across all scenes
-			DontDestroyOnLoad(gameObject);
+
+            // This "GameManager" will be carried across all scenes
+            DontDestroyOnLoad(gameObject);
 
             // Assign all the ghosts to a list
-            ghosts = new List<Ghost>();
+            ghosts = new List <Ghost>();
 
             // Gets a reference to the "DungeonBoardManager" script
             dungeonBoardManager = GetComponent<DungeonBoardManager>();
 
             // This calls InitialiseGame function to start the first dungeon
             InitializeGame();
-		}
+        }
 
         //Update is called every frame.
-        void Update()
-		{
+        void Update() {
             // If you're allowed to now go back to the menu, then you can if you press "LeftAlt"
-            if(goBackToGodMenuBool)
-            {
-                if(Input.GetKeyDown(KeyCode.LeftAlt))
-                {
+            if (goBackToGodMenuBool) 
+	    {
+                if (Input.GetKeyDown(KeyCode.LeftAlt)) 
+		{
                     StartCoroutine(GoBackToGodMenu());
                 }
             }
 
             // If restartGame is true then
-            if(restartGame)
-            {
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
+            if (restartGame)
+	    {
+                if (Input.GetKeyDown(KeyCode.Space)) 
+		{
                     InitializeGame();
 
                     // Destroy the sound when you want to restart the game and reset the easter egg count
                     easterEggCount = 0;
 
                     // Only destroy this game object if it exists
-                    if (GameObject.Find("SoundPrefab(Clone)"))
-                    {
+                    if (GameObject.Find("SoundPrefab(Clone)")) 
+		    {
                         Destroy(GameObject.Find("SoundPrefab(Clone)").gameObject);
                     }
 
@@ -131,24 +130,24 @@ namespace RogueKnight
             }
 
             // Check to see if you collected 10 crates and if you have change to the easter egg scene
-            if (easterEggCount >= 10)
-            {
+            if (easterEggCount >= 10) 
+	    {
                 SceneManager.LoadScene("rogue-knight-easter-egg");
             }
 
-			// This checks to see if any of these "OR" conditions are true
-			if(knightsTurn || ghostsMoving || settingBoard)
-            {
+            // This checks to see if any of these "OR" conditions are true
+            if (knightsTurn || ghostsMoving || settingBoard) 
+	    {
                 // Do not move any ghosts if any of these "OR" conditions are true
                 return;
             }
 
             // If the above statement is false, move the ghosts
             StartCoroutine(MoveGhosts());
-		}
+        }
 
-        void InitializeGame()
-        {
+        void InitializeGame() 
+	{
             // Reset the static variables and reload the scene
             dungeon = 1;
             easterEggCount = 0;
@@ -156,8 +155,8 @@ namespace RogueKnight
         }
 
         // Initializes the game for each new dungeon
-        void InitializeLevel()
-        {
+        void InitializeLevel() 
+	{
             // Set the knight to not move
             knightsTurn = false;
 
@@ -168,7 +167,7 @@ namespace RogueKnight
             dungeonImage = GameObject.Find("DungeonImage");
 
             // This finds the dungeon text in the scene
-            dungeonText = GameObject.Find("DungeonText").GetComponent<Text>();
+            dungeonText = GameObject.Find("DungeonText").GetComponent < Text > ();
 
             // This gets the dungeon text in the game
             dungeonText.text = "Dungeon " + dungeon;
@@ -188,24 +187,26 @@ namespace RogueKnight
         }
 
         // This will move the ghosts in sequence
-        IEnumerator MoveGhosts()
-        {
+        IEnumerator MoveGhosts() 
+	{
             // This will disable the knight from moving
             ghostsMoving = true;
 
             // Move the ghosts after the knight's turn delay is up
-            yield return new WaitForSeconds(knightTurnDelay);
+            yield
+            return new WaitForSeconds(knightTurnDelay);
 
             // If the number if ghosts in the first level is 0 then
-            if (ghosts.Count == 0)
-            {
+            if (ghosts.Count == 0) 
+	    {
                 // This will replace the delay that causes the enemies to move when there are no ghosts
-                yield return new WaitForSeconds(knightTurnDelay);
+                yield
+                return new WaitForSeconds(knightTurnDelay);
             }
 
             // Go through the ghost list
-            for (int i = 0; i < ghosts.Count; i++)
-            {
+            for (int i = 0; i < ghosts.Count; i++) 
+	    {
                 // Move every single ghost in the list
                 ghosts[i].MoveGhost();
 
@@ -221,109 +222,110 @@ namespace RogueKnight
         }
 
         // This will be invoked when you need to add a new ghost to the list
-        public void AddGhostToList(Ghost script)
-		{
+        public void AddGhostToList(Ghost script) 
+	{
             ghosts.Add(script);
-		}
+        }
 
         // This will hide the dungeon image between each different dungeon
-        void HideDungeonImage()
-        {
+        void HideDungeonImage() 
+	{
             dungeonImage.SetActive(false);
             settingBoard = false;
         }
 
         // All of this will happen when the knight has no more energy points
-        public void GameOver()
-		{
-			// This will show that you survived for x amount of dungeons
-			dungeonText.text = "After " + dungeon + " dungeons, \nyour quest ended.";
-			
-			// It will show the dungeon image
-			dungeonImage.SetActive(true);
+        public void GameOver() 
+	{
+            // This will show that you survived for x amount of dungeons
+            dungeonText.text = "After " + dungeon + " dungeons, \nyour quest ended.";
+
+            // It will show the dungeon image
+            dungeonImage.SetActive(true);
 
             // Don't allow the player to move
-            GameObject.Find("Knight").GetComponent<Knight>().enabled = false;
+            GameObject.Find("Knight").GetComponent < Knight > ().enabled = false;
 
             // Bool to allow the coroutine to go back to the god menu to start
             goBackToGodMenuBool = true;
 
             // Don't allow the player to pause the game when the game is over
-            pauseGame = GameObject.Find("PauseGame").GetComponent<PauseGame>();
+            pauseGame = GameObject.Find("PauseGame").GetComponent < PauseGame > ();
             pauseGame.gameObject.SetActive(false);
 
             // Show the text to restart the game and allow a restart after a second
             StartCoroutine(AllowRestart());
-		}
+        }
 
-        IEnumerator AllowRestart()
-        {
+        IEnumerator AllowRestart() 
+	{
             // Wait for one second and then allow a restart and show the restart text
-            yield return new WaitForSeconds(1f);
+            yield
+            return new WaitForSeconds(1 f);
 
-            restartText = GameObject.Find("RestartText").GetComponent<Text>(); ;
+            restartText = GameObject.Find("RestartText").GetComponent < Text > ();;
             restartText.enabled = true;
 
             restartGame = true;
         }
 
         // Plays a sound and goes to "welcome" after a second
-        IEnumerator LoadWelcome()
-        {
-            catapultSound = GameObject.Find("CatapultSound").GetComponent<AudioSource>();
+        IEnumerator LoadWelcome() 
+	{
+            catapultSound = GameObject.Find("CatapultSound").GetComponent < AudioSource > ();
 
             // Only play this sound once
-            if(catapultSoundPlay)
-            {
+            if (catapultSoundPlay) 
+	    {
                 catapultSound.Play();
                 catapultSoundPlay = false;
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1 f);
 
             SceneManager.LoadScene("welcome");
             catapultSoundPlay = true;
         }
 
-        IEnumerator GoBackToGodMenu()
-        {
+        IEnumerator GoBackToGodMenu() 
+	{
             // Capture the backSound if it exists
-            if(GameObject.Find("BackSound"))
-            {
-                backSound = GameObject.Find("BackSound").GetComponent<AudioSource>();
+            if (GameObject.Find("BackSound")) 
+	    {
+                backSound = GameObject.Find("BackSound").GetComponent < AudioSource > ();
             }
 
             // Play a sound (only once) and switch scenes after 0.25f seconds
-            if (soundPlayOnce)
-            {
+            if (soundPlayOnce) 
+	    {
                 backSound.Play();
                 soundPlayOnce = false;
             }
 
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.25 f);
 
             SceneManager.LoadScene("godMenu");
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         // Set the energy points variable to 200 before the scene loads
-        static public void GameLoadCallback()
-        {
-           energyPoints = 200;
+        static public void GameLoadCallback() 
+	{
+            energyPoints = 200;
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        static public void CallbackInitialization()
-        {
+        static public void CallbackInitialization() 
+	{
             // Registers a callback to be called everytime a scene is loaded
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
         // This function is called everytime you go to a next dungeon
-        static private void OnSceneLoaded(Scene sceneName, LoadSceneMode sceneMode)
-        {
-            if(sceneName.name == "rogue-knight")
-            {
+        static private void OnSceneLoaded(Scene sceneName, LoadSceneMode sceneMode) 
+	{
+            if (sceneName.name == "rogue-knight") 
+	    {
                 gmInstance.InitializeLevel();
             }
         }
