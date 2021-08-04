@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace RogueKnight 
 {
-   public abstract class MovingElement: MonoBehaviour 
+   public abstract class MovingElement : MonoBehaviour 
    {
       // BoxCollider2D, Rigidbody2D and float variable (which is used to make the movement more refined)
       internal BoxCollider2D boxCollider2D;
