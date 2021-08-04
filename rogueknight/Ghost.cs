@@ -61,7 +61,7 @@ namespace RogueKnight
             }
 
             // Invoke the TryMove function and pass in the Knight
-            TryMove <Knight> (xDir, yDir);
+            TryMove<Knight> (xDir, yDir);
         }
 
         // Overrides the TryMove function in the base class to include functionality needed for the Ghost to move at certain times
