@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 namespace LeonsWorld 
 {
-    public class GameManager: MonoBehaviour 
+    public class GameManager : MonoBehaviour 
     {
 
         // Variables for each of the buttons on the pause menu
