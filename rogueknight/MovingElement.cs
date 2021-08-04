@@ -60,8 +60,7 @@ namespace RogueKnight
 
       // The virtual keyword makes sure that "TryMove" can be overridden by inheriting classes using "override"
       // "TryMove" takes a generic parameter to specify the type of the component we expect our entity to interact with if the entity is blocked
-      protected virtual void TryMove <T> (float x, float y)
-      where T: Component 
+      protected virtual void TryMove <T> (float x, float y) where T: Component 
       {
          // Prevents the sprite from flipping back left when you are only moving up or down
          // Retains the last flipped state
