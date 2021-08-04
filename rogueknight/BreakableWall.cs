@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace RogueKnight 
 {
-    public class BreakableWall: MonoBehaviour 
+    public class BreakableWall : MonoBehaviour 
     {
         // How many hits the knight has to give in-order for the wall to break
         public int wallHealth = 4;
