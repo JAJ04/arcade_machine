@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SkipCredits: MonoBehaviour 
+public class SkipCredits : MonoBehaviour 
 {
     // Reference to the audio to play
     public AudioSource backSound;
