@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace LeonsWorld 
 {
-    public class Timer: MonoBehaviour 
+    public class Timer : MonoBehaviour 
     {
         // This script is used to give a timer as to
         // how long the player has to complete the scene
