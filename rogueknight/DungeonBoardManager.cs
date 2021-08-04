@@ -19,7 +19,8 @@ namespace RogueKnight
             public int max;
 
             // Constructor
-            public BoardCount(int min, int max) {
+            public BoardCount(int min, int max) 
+	    {
                 this.min = min;
                 this.max = max;
             }
@@ -40,7 +41,7 @@ namespace RogueKnight
         // Stores transform of the board game object
         private Transform dungeonBoardHolder;
         // Locations to place tiles
-        private List < Vector3 > dungeonTilesPositions = new List < Vector3 > ();
+        private List <Vector3> dungeonTilesPositions = new List <Vector3> ();
 
         // Max and min energy items per dungeon
         public BoardCount energyCount = new BoardCount(1, 5);
