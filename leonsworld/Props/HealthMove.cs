@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class HealthMove: MonoBehaviour
+public class HealthMove : MonoBehaviour
 {
     // This will start the health sprite at one destination and will move it to another destination
     public Transform originSpot;
