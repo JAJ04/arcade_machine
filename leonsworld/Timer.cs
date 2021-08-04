@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LeonsWorld
+namespace LeonsWorld 
 {
-    public class Timer : MonoBehaviour
+    public class Timer: MonoBehaviour 
     {
         // This script is used to give a timer as to
         // how long the player has to complete the scene
@@ -13,7 +13,7 @@ namespace LeonsWorld
         // with a timer was implemented
 
         // This declares a time (120 secs) to complete the scene
-        private float timer = 120f;
+        private float timer = 120 f;
 
         // GUI text will only display if this is true
         private bool enableTimeRemainingText = true;
@@ -27,20 +27,20 @@ namespace LeonsWorld
         public GameManager gameManager;
 
         // Update is called once per frame
-        void Update ()
-        {
+        void Update()
+	{
             // Keep decreasing the timer every update
             timer -= Time.deltaTime;
-        
+
             // Disable the time remaining button 
             // if the user is dead
-            if(GameManager.curHealth <= 0)
-            {
+            if (GameManager.curHealth <= 0)
+	    {
                 enableTimeRemainingText = false;
             }
 
-            if(timer < 0)
-            {
+            if (timer < 0) 
+	    {
                 // Disable to time remaining display
                 enableTimeRemainingText = false;
                 // Kill the player
@@ -50,17 +50,17 @@ namespace LeonsWorld
             }
 
             // Keep updating the text if you are allowed to
-            if(enableTimeRemainingText)
-            {
-                timeRemainingText.GetComponent<Text>().text = "" + timer.ToString("0") + "\n seconds remaining.";
-            }
-            else
-            {
+            if (enableTimeRemainingText) 
+	    {
+                timeRemainingText.GetComponent < Text > ().text = "" + timer.ToString("0") + "\n seconds remaining.";
+            } 
+	    else 
+	    {
                 // Disable both the time remaining text and the panel itself
                 timeRemainingText.gameObject.SetActive(false);
                 panel.gameObject.SetActive(false);
                 gameManager.timerIsNotDone = false;
             }
-	    }
+        }
     }
 }
