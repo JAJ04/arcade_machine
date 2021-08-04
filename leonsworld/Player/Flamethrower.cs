@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LeonsWorld
+namespace LeonsWorld 
 {
-    public class Flamethrower : MonoBehaviour
+    public class Flamethrower: MonoBehaviour
     {
         // Variables to get game manager data
         public GameObject gameManager;
@@ -18,15 +18,16 @@ namespace LeonsWorld
         public AudioSource clickSound;
 
         // Use this for initialization
-        void Start () {
-            gameManagerScript = gameManager.GetComponent<GameManager>();
-	    }
+        void Start()
+	{
+            gameManagerScript = gameManager.GetComponent < GameManager > ();
+        }
 
-        public void FlamethrowerFunction()
-        {
+        public void FlamethrowerFunction() 
+	{
             // WEAPON 2 BUTTON
-            if (PlayerPrefs.GetInt("Weapon2", 0) >= 1)
-            {
+            if (PlayerPrefs.GetInt("Weapon2", 0) >= 1) 
+	    {
                 // This allows the player to equip the flamethrower
                 GameManager.bulletDamage = 6;
                 gameManagerScript.weaponTitle.text = "Flamethrower";
@@ -40,19 +41,19 @@ namespace LeonsWorld
                 gameManagerScript.flameThrowerBool = true;
                 clickSound.Play();
             }
-            else
-            {
-                if (GameManager.curCoins >= 500)
-                {
+	    else
+	    {
+                if (GameManager.curCoins >= 500) 
+		{
                     // Set the "Weapon" PlayerPrefs so that the player can have the Flamethrower enabled
 
                     // SUBTRACTING WEAPON AMOUNT
                     GameManager.curCoins -= 500;
                     PlayerPrefs.SetInt("Weapon2", 1);
                     gameManagerScript.chaching.Play();
-                }
-                else
-                {
+                } 
+		else 
+		{
                     // Play the invalid sound
                     negativeBeeper.Play();
                 }
