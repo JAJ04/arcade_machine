@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MartianAttack 
 {
-    public class ChangeBossColor: MonoBehaviour 
+    public class ChangeBossColor : MonoBehaviour 
     {
         // Used to slow down the changing of the sprite color
         private float _timer = 0;
