@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace LeonsWorld 
 {
-    public class Checker: MonoBehaviour 
+    public class Checker : MonoBehaviour 
     {
         // Get properties of the game manager (reference)
         public GameManager gameManager;
