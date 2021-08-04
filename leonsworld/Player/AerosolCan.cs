@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace LeonsWorld 
 {
-    public class AerosolCan: MonoBehaviour 
+    public class AerosolCan : MonoBehaviour 
     {
         // Variable to get game manager data
         public GameObject gameManager;
