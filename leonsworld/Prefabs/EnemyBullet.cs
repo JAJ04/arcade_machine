@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace LeonsWorld 
 {
-    public class EnemyBullet: MonoBehaviour 
+    public class EnemyBullet : MonoBehaviour 
     {
         // Bullet speed
         private float speed;
