@@ -446,74 +446,88 @@ namespace LeonsWorld
             if (curHealth >= 3)
 	    {
                 // If there are SpriteRenderer components attached then run the code in the brackets
-                if (face.GetComponent < SpriteRenderer > () && face2.GetComponent < SpriteRenderer > () && face3.GetComponent < SpriteRenderer > ()) 
+                if (face.GetComponent <SpriteRenderer>() && face2.GetComponent <SpriteRenderer>() && face3.GetComponent<SpriteRenderer>()) 
 		{
-                    face.GetComponent < SpriteRenderer > ().enabled = true;
-                    face2.GetComponent < SpriteRenderer > ().enabled = false;
-                    face3.GetComponent < SpriteRenderer > ().enabled = false;
+                    face.GetComponent<SpriteRenderer>().enabled = true;
+                    face2.GetComponent<SpriteRenderer>().enabled = false;
+                    face3.GetComponent<SpriteRenderer>().enabled = false;
                 }
             }
 
-            if (curHealth == 2) {
-                if (face.GetComponent < SpriteRenderer > () && face2.GetComponent < SpriteRenderer > () && face3.GetComponent < SpriteRenderer > ()) {
-                    face.GetComponent < SpriteRenderer > ().enabled = false;
-                    face2.GetComponent < SpriteRenderer > ().enabled = true;
-                    face3.GetComponent < SpriteRenderer > ().enabled = false;
+            if (curHealth == 2) 
+	    {
+                if (face.GetComponent<SpriteRenderer>() && face2.GetComponent<SpriteRenderer>() && face3.GetComponent<SpriteRenderer>()) 
+		{
+                    face.GetComponent<SpriteRenderer>().enabled = false;
+                    face2.GetComponent<SpriteRenderer>().enabled = true;
+                    face3.GetComponent<SpriteRenderer>().enabled = false;
                 }
             }
 
-            if (curHealth == 1) {
-                if (face.GetComponent < SpriteRenderer > () && face2.GetComponent < SpriteRenderer > () && face3.GetComponent < SpriteRenderer > ()) {
-                    face.GetComponent < SpriteRenderer > ().enabled = false;
-                    face2.GetComponent < SpriteRenderer > ().enabled = false;
-                    face3.GetComponent < SpriteRenderer > ().enabled = true;
+            if (curHealth == 1) 
+	    {
+                if (face.GetComponent<SpriteRenderer>() && face2.GetComponent <SpriteRenderer>() && face3.GetComponent<SpriteRenderer>()) 
+		{
+                    face.GetComponent<SpriteRenderer>().enabled = false;
+                    face2.GetComponent<SpriteRenderer>().enabled = false;
+                    face3.GetComponent<SpriteRenderer>().enabled = true;
                 }
             }
 
             // If the aerosol can is selected
-            if (bulletDamage == 1) {
+            if (bulletDamage == 1) 
+	    {
                 // The statements essentially act like a timeout for the shooting
                 // of the Aerosol Can
 
                 // Only allows the Aerosol Can to be shot for 0.10f of a second
                 // Otherwise you can't shoot it at i.e. 0f
-                if (Input.GetKeyDown(KeyCode.LeftAlt) && !isKeyPressed) {
+                if (Input.GetKeyDown(KeyCode.LeftAlt) && !isKeyPressed) 
+		{
                     isKeyPressed = true;
                     timerBullet = 0 f;
                 }
 
-                if (Input.GetKeyUp(KeyCode.LeftAlt) && isKeyPressed) {
+                if (Input.GetKeyUp(KeyCode.LeftAlt) && isKeyPressed) 
+		{
                     isKeyPressed = false;
                     timerBullet = 0.15 f;
                 }
 
-                if (timerBullet >= 0 f) {
+                if (timerBullet >= 0 f) 
+		{
                     canFire = true;
                 }
 
-                if (timerBullet >= 0.15 f) {
+                if (timerBullet >= 0.15 f) 
+		{
                     canFire = false;
                 }
             }
 
             // If the flamethrower is selected
-            if (bulletDamage == 6) {
+            if (bulletDamage == 6) 
+	    {
                 // Same as above except timeout values have changed
-                if (Input.GetKeyDown(KeyCode.LeftAlt) && !isKeyPressed) {
+                if (Input.GetKeyDown(KeyCode.LeftAlt) && !isKeyPressed) 
+		{
                     isKeyPressed = true;
                     timerBullet = 0 f;
                 }
 
-                if (Input.GetKeyUp(KeyCode.LeftAlt) && isKeyPressed) {
+                if (Input.GetKeyUp(KeyCode.LeftAlt) && isKeyPressed) 
+		{
                     isKeyPressed = false;
                     timerBullet = 0.15 f;
                 }
 
-                if (timerBullet >= 0 f) {
+                if (timerBullet >= 0 f) 
+		{
                     canFire = true;
                 }
 
-                if (timerBullet >= 0.15 f) {
+                if (timerBullet >= 0.15 f) 
+		{
                     canFire = false;
                 }
             }
@@ -522,12 +536,14 @@ namespace LeonsWorld
             horizontal = Input.GetAxis("Horizontal");
 
             // Move Player Right
-            if (horizontal > 0) {
+            if (horizontal > 0) 
+	    {
                 lookRight = true;
             }
 
             // Move Player Left
-            if (horizontal < 0) {
+            if (horizontal < 0) 
+	    {
                 lookRight = false;
             }
 
