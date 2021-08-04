@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MartianAttack 
 {
-    public class LeaderBoard: MonoBehaviour 
+    public class LeaderBoard : MonoBehaviour 
     {
         // Array that stores all of the high scores
         public Text[] _highScores;
