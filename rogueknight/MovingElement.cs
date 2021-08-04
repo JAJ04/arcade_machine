@@ -22,10 +22,10 @@ namespace RogueKnight
       protected virtual void Start() 
       {
          // Reference to "THIS" element's "BoxCollider2D" component
-         boxCollider2D = GetComponent < BoxCollider2D > ();
+         boxCollider2D = GetComponent <BoxCollider2D>();
 
          // Reference to "THIS" element's "Rigidbody2D" component
-         rigidbody2D = GetComponent < Rigidbody2D > ();
+         rigidbody2D = GetComponent <Rigidbody2D>();
 
          // Stores the reciprocal of movingElementTime we can use it by doing multiplication 
          oppositeMoveTime = 1 f / movingElementTime;
@@ -60,18 +60,22 @@ namespace RogueKnight
 
       // The virtual keyword makes sure that "TryMove" can be overridden by inheriting classes using "override"
       // "TryMove" takes a generic parameter to specify the type of the component we expect our entity to interact with if the entity is blocked
-      protected virtual void TryMove < T > (float x, float y)
+      protected virtual void TryMove <T> (float x, float y)
       where T: Component 
       {
          // Prevents the sprite from flipping back left when you are only moving up or down
          // Retains the last flipped state
 
-         if (!Mathf.Approximately(transform.position.x, (transform.position.x + x))) {
+         if (!Mathf.Approximately(transform.position.x, (transform.position.x + x))) 
+	 {
             // Flip the sprites dependent on this condition
-            if (Mathf.Round(transform.position.x) < Mathf.Round(transform.position.x + x)) {
-               GetComponent < SpriteRenderer > ().flipX = false;
-            } else {
-               GetComponent < SpriteRenderer > ().flipX = true;
+            if (Mathf.Round(transform.position.x) < Mathf.Round(transform.position.x + x)) 
+	    {
+               GetComponent <SpriteRenderer>().flipX = false;
+            } 
+	    else 
+	    {
+               GetComponent <SpriteRenderer>().flipX = true;
             }
          }
 
@@ -89,7 +93,7 @@ namespace RogueKnight
          }
 
          // Gets a "component" reference to the type T (a generic) that is attached to the element that was hit
-         T hitComponent = hit.transform.GetComponent < T > ();
+         T hitComponent = hit.transform.GetComponent<T>();
 
          // If canMove is false and also hitComponent is not equal to null
          if (!moveAllowed && hitComponent != null) 
@@ -111,7 +115,8 @@ namespace RogueKnight
          float sqredRemainingDistance = (transform.position - end).sqrMagnitude;
 
          // While sqredRemainingDistance is greater than a miniscule amount:
-         while (sqredRemainingDistance > float.Epsilon) {
+         while (sqredRemainingDistance > float.Epsilon)
+	 {
             // Find a new position that is closer to the end based on the oppositeMoveTime
             Vector3 newPos = Vector3.MoveTowards(rigidbody2D.position, end, oppositeMoveTime * Time.deltaTime);
 
@@ -122,13 +127,11 @@ namespace RogueKnight
             sqredRemainingDistance = (transform.position - end).sqrMagnitude;
 
             // Return and keep repeating until sqredRemainingDistance is approximately zero to end this function
-            yield
-            return null;
+            yield return null;
          }
       }
 
       // This function in an inherited class
-      protected abstract void IfCantMove < T > (T component)
-      where T: Component;
+      protected abstract void IfCantMove<T> (T component) where T: Component;
    }
 }
