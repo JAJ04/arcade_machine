@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MartianAttack 
 {
-    public class Bullet: MonoBehaviour 
+    public class Bullet : MonoBehaviour 
     {
         // Sets the speed of the bullet
         [SerializeField]
