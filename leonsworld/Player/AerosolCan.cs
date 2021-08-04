@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace LeonsWorld
+namespace LeonsWorld 
 {
-    public class AerosolCan : MonoBehaviour
+    public class AerosolCan: MonoBehaviour 
     {
         // Variable to get game manager data
         public GameObject gameManager;
@@ -18,15 +18,15 @@ namespace LeonsWorld
         public AudioSource clickSound;
 
         // Use this for initialization
-        void Start ()
-        {
-            gameManagerScript = gameManager.GetComponent<GameManager>();
-	    }
+        void Start() 
+	{
+            gameManagerScript = gameManager.GetComponent < GameManager > ();
+        }
 
-        public void AerosolCanFunction()
-        {
-            if (GameManager.curCoins >= 250 && PlayerPrefs.GetInt("Weapon1", 0) <= 0)
-            {
+        public void AerosolCanFunction() 
+	{
+            if (GameManager.curCoins >= 250 && PlayerPrefs.GetInt("Weapon1", 0) <= 0) 
+	    {
                 // This allows them to now use the AerosolCan by assigning the value "1"
                 // to the key "Weapon1"
                 // SUBTRACTING WEAPON AMOUNT
@@ -35,15 +35,15 @@ namespace LeonsWorld
                 gameManagerScript.chaching.Play();
             }
 
-            if (GameManager.curCoins < 250 && PlayerPrefs.GetInt("Weapon1", 0) <= 0)
-            {
+            if (GameManager.curCoins < 250 && PlayerPrefs.GetInt("Weapon1", 0) <= 0) 
+	    {
                 // Play an invalid buzz sound
                 negativeBeeper.Play();
             }
 
             // Allow the player to equip an aerosol can if PlayerPrefs Weapon 1 is >= 1
-            if (PlayerPrefs.GetInt("Weapon1", 0) >= 1)
-            {
+            if (PlayerPrefs.GetInt("Weapon1", 0) >= 1) 
+	    {
                 GameManager.bulletDamage = 1;
                 gameManagerScript.weaponTitle.text = "Aerosol Can";
 
