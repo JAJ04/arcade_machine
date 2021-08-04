@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace MartianAttack 
 {
-    public class ExplosionSpriteEffect: MonoBehaviour 
+    public class ExplosionSpriteEffect : MonoBehaviour 
     {
         // Reference to the audio source
         private AudioSource _audioSource;
