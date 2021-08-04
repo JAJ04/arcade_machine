@@ -6,7 +6,7 @@ public class DestroyExplosion : MonoBehaviour
 {
 	// Use this for initialization
 	void Start ()
-    {
-        Destroy(gameObject, 5f);
+    	{
+        	Destroy(gameObject, 5f);
 	}
 }
