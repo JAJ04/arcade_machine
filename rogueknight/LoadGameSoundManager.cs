@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace RogueKnight 
 {
-    public class LoadGameSoundManager: MonoBehaviour 
+    public class LoadGameSoundManager : MonoBehaviour 
     {
         // These are game objects that will hold the associated scripts
         public GameObject gameManager;
