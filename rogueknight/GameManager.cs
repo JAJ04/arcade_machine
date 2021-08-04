@@ -95,7 +95,8 @@ namespace RogueKnight
         }
 
         //Update is called every frame.
-        void Update() {
+        void Update() 
+	{
             // If you're allowed to now go back to the menu, then you can if you press "LeftAlt"
             if (goBackToGodMenuBool) 
 	    {
@@ -193,15 +194,13 @@ namespace RogueKnight
             ghostsMoving = true;
 
             // Move the ghosts after the knight's turn delay is up
-            yield
-            return new WaitForSeconds(knightTurnDelay);
+            yield return new WaitForSeconds(knightTurnDelay);
 
             // If the number if ghosts in the first level is 0 then
             if (ghosts.Count == 0) 
 	    {
                 // This will replace the delay that causes the enemies to move when there are no ghosts
-                yield
-                return new WaitForSeconds(knightTurnDelay);
+                yield return new WaitForSeconds(knightTurnDelay);
             }
 
             // Go through the ghost list
