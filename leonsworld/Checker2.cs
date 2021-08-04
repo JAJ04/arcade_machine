@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace LeonsWorld 
 {
-    public class Checker2: MonoBehaviour
+    public class Checker2 : MonoBehaviour
     {
         // This script checks to see if the player is dead and 
         // resets the boss scene if the gameManger is null
