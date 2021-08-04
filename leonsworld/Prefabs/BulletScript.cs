@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace LeonsWorld 
 {
-    public class BulletScript: MonoBehaviour 
+    public class BulletScript : MonoBehaviour 
     {
         // If the bullet hits any of the tags do something and destroy the
         // game object attached to the tag no matter what
